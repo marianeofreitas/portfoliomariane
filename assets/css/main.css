@@ -236,6 +236,12 @@ h6 {
     transition: visibility 0s, opacity 0.3s ease-in-out;
   }
 
+  @media (max-width: 1199px) {
+    .header-social-links {
+      display: none;
+    }
+  }
+
   .navmenu ul {
     display: block;
     list-style: none;
@@ -480,8 +486,70 @@ h6 {
     font-size: 16px;
   }
 }
+@media (max-width: 767px) {
+  .contact .row {
+    display: flex;
+    flex-direction: column; /* Alinha os itens na vertical */
+    gap: 20px; /* Espaço entre as colunas */
+  }
 
+  /* Reordenação das colunas */
+  .contact .col-lg-4:nth-child(1) {
+    order: 1; /* Redes Sociais */
+  }
 
+  .contact .col-lg-4:nth-child(2) {
+    order: 3; /* Me mande uma mensagem */
+  }
+
+  .contact .col-lg-4:nth-child(3) {
+    order: 2; /* Email */
+  }
+
+  /* Estilização adicional para os info-items */
+  .contact .info-item {
+    width: 100%; /* Cada item ocupa toda a largura */
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+
+  /* Ajustes no formulário */
+  .php-email-form {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .php-email-form input,
+  .php-email-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .php-email-form button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .php-email-form button:hover {
+    background: #0056b3;
+  }
+}
 
 /*--------------------------------------------------------------
 # Global Footer
