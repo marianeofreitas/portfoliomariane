@@ -1065,11 +1065,12 @@ section,
 }
 */
 
-/*Porfolio Section Novo --------------------------------------------------------------
---------------------------------------------------------------*/
+/* Portfolio Section --------------------------------------------------------------*/
+
+/* Filtros do portfólio */
 .portfolio .portfolio-filters {
   padding: 0;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 20px;
   list-style: none;
   text-align: center;
 }
@@ -1077,19 +1078,17 @@ section,
 .portfolio .portfolio-filters li {
   cursor: pointer;
   display: inline-block;
-  padding: 0;
   font-size: 18px;
   font-weight: 400;
-  margin: 0 10px;
+  margin: 0 10px 5px;
   line-height: 1;
-  margin-bottom: 5px;
   transition: all 0.3s ease-in-out;
 }
 
 .portfolio .portfolio-filters li:hover {
   border: 2px solid #00B57F;
-  color: #00B57F; /* Cor do texto verde */
-  padding: 2px; /* Ajusta o espaçamento interno para manter o layout */
+  color: #00B57F;
+  padding: 2px;
 }
 
 .portfolio .portfolio-filters li.filter-active {
@@ -1098,29 +1097,20 @@ section,
   padding: 2px;
 }
 
-.portfolio .portfolio-filters li:first-child {
-  margin-left: 0;
-}
-
-.portfolio .portfolio-filters li:last-child {
-  margin-right: 0;
-}
-
-/* Ajustando espaçamento entre imagens */
+/* Itens do portfólio */
 .portfolio .portfolio-item {
-  margin-bottom: 20px; /* Espaçamento vertical entre as imagens */
+  margin-bottom: 20px;
 }
 
 .portfolio .portfolio-item img {
-  max-width: 90%; /* Reduz o tamanho das imagens */
-  margin: 0 auto; /* Centraliza as imagens */
-  display: block; /* Garante alinhamento */
+  max-width: 90%;
+  margin: 0 auto;
+  display: block;
 }
 
 .row.g-1 {
-  gap: 15px; /* Espaçamento horizontal entre as imagens */
+  gap: 15px;
 }
-
 
 @media (max-width: 575px) {
   .portfolio .portfolio-filters li {
@@ -1129,79 +1119,114 @@ section,
   }
 }
 
+/* Conteúdo do portfólio */
 .portfolio .portfolio-content {
-  display: flex; /* Garante que o conteúdo se ajuste ao tamanho da imagem */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse a borda */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
 .portfolio .portfolio-content img {
   width: 100%;
   height: auto;
-  transition: transform 0.3s ease-in-out; /* Adiciona uma transição suave ao zoom */
-}
-
-.portfolio .portfolio-content .portfolio-info {
-  inset: auto; /* Ajusta o tamanho do overlay para acompanhar a imagem */
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all ease-in-out 0.5s;
-}
-
-.portfolio .portfolio-content .portfolio-info h4 {
-  font-size: 14px;
-  padding: 5px 10px;
-  font-weight: 400;
-  color: #ffffff;
-  display: inline-block;
-  background-color: var(--accent-color);
-}
-
-.portfolio .portfolio-content .portfolio-info p {
-  position: absolute;
-  bottom: 10px;
-  text-align: center;
-  display: inline-block;
-  left: 0;
-  right: 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.portfolio .portfolio-content .portfolio-info .preview-link,
-.portfolio .portfolio-content .portfolio-info .details-link {
-  position: absolute;
-  left: calc(50% - 40px);
-  font-size: 26px;
-  top: calc(50% - 14px);
-  color: #fff;
-  transition: 0.3s;
-  line-height: 1.2;
-}
-
-.portfolio .portfolio-content .portfolio-info .preview-link:hover,
-.portfolio .portfolio-content .portfolio-info .details-link:hover {
-  color: var(--accent-color);
-}
-
-.portfolio .portfolio-content .portfolio-info .details-link {
-  left: 50%;
-  font-size: 34px;
-  line-height: 0;
-}
-
-.portfolio .portfolio-content:hover .portfolio-info {
-  opacity: 1; /* Mostra o efeito ao passar o mouse */
+  transition: transform 0.3s ease-in-out;
 }
 
 .portfolio .portfolio-content:hover img {
-  transform: scale(1.1); /* Mantém o efeito de zoom */
+  transform: scale(1.1);
+}
+
+
+/* Informações do portfólio */
+.portfolio .portfolio-info {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row; /* Altera a direção para linha */
+  justify-content: space-between; /* Distribui o conteúdo */
+  align-items: center; /* Centraliza os itens verticalmente */
+  opacity: 0;
+  transition: opacity 0.3s, bottom 0.3s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  box-sizing: border-box;
+  height: 50px; /* Ajuste a altura do retângulo conforme necessário */
+}
+
+.portfolio .portfolio-content:hover .portfolio-info {
+  opacity: 1;
+  bottom: 0;
+}
+
+/* Nome do mapa */
+.portfolio .portfolio-info .map-name {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px; /* Espaço entre o nome e os ícones */
+  margin-bottom: 0; /* Remove espaçamento extra */
+}
+
+/* Ícones */
+.portfolio .portfolio-info .icons {
+  display: flex;
+  gap: 10px;
+}
+
+.portfolio .portfolio-info .icons a {
+  font-size: 30px;
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.portfolio .portfolio-info .icons a:hover {
+  color: var(--accent-color);
+}
+
+/* Texto dos ícones */
+.icons .icon-text {
+  display: none;
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.icons a:hover .icon-text {
+  display: inline;
+}
+
+/* Tooltip inicial escondido */
+.icons {
+  position: relative; /* Define o contexto para o posicionamento do tooltip */
+}
+
+.icons .icon-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  color: #fff; /* Cor do texto */
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 5px 8px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 80%; /* Ajuste para aparecer acima do ícone */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 14px;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 10; /* Garante que o texto fique acima de outros elementos */
+}
+
+/* Exibir tooltip ao passar o mouse */
+.icons a:hover .icon-tooltip {
+  visibility: visible;
+  opacity: 1;
 }
 
 
@@ -1234,6 +1259,14 @@ section,
   padding: 0;
   margin-bottom: 0;
   font-size: 17px;
+}
+
+.section-title p {
+  font-size: 16px; /* Tamanho do texto no <p> */
+  font-weight: normal; /* Peso normal para o parágrafo */
+  color: #000; /* Preto */
+  line-height: 1.5; /* Espaçamento entre linhas */
+  margin-top: 10px;
 }
 
 @media (min-width: 992px) {
@@ -1381,6 +1414,7 @@ section,
 
 .portfolio-details .portfolio-details-slider img {
   width: 100%;
+  height: auto; /* Garante que a imagem se ajuste ao tamanho do contêiner */
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination {
@@ -1413,6 +1447,7 @@ section,
   padding-bottom: 20px;
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
 }
+
 .portfolio-details .portfolio-info h3 {
   font-size: 22px;
   font-weight: 700;
@@ -1491,6 +1526,7 @@ body {
 .swiper-button-next {
   right: 10px;
 }
+
 .swiper-button-prev {
   left: 10px;
 }
